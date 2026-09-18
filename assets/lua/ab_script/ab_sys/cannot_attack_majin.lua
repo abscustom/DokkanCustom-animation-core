@@ -1,0 +1,23 @@
+fcolor_r = 245;
+fcolor_g = 245;
+fcolor_b = 245;
+
+CNT_COUNT_START = 30;
+CNT_COUNT_END = 180;
+
+setEnvZoomEnable(0, 0);
+
+entryFade(20, 5, 4, 8, fcolor_r, fcolor_g, fcolor_b, 255);
+
+changeAnime(0,0, 17);
+
+-- 画面中央位置
+setMoveKey(0,   0,   0,   0,  0);
+
+entryFadeBg(0, 0, CNT_COUNT_START, 0, 10, 10, 10, 180);
+playSe(CNT_COUNT_START, 46);
+
+showMessageLabelFlexible(CNT_COUNT_START);
+showAttackBreakEffects(5);
+
+endPhase(CNT_COUNT_END);
