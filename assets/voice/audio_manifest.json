@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-17T03:46:28.985Z",
+  "source": "MuMu files/assets/voice (root Japanese banks plus voice/en English banks)",
+  "note": "The animation server indexes voice cues from the leading numeric cue name embedded in each AWB stream.",
+  "banks": [
+    {
+      "id": "cv000000/cv000000",
+      "acb": "cv000000/cv000000.acb",
+      "awb": "cv000000/cv000000.awb",
+      "acbBytes": 122432,
+      "awbBytes": 83927622
+    },
+    {
+      "id": "cv000002/cv000002",
+      "acb": "cv000002/cv000002.acb",
+      "awb": "cv000002/cv000002.awb",
+      "acbBytes": 10272,
+      "awbBytes": 718732
+    },
+    {
+      "id": "cv001000/cv001000",
+      "acb": "cv001000/cv001000.acb",
+      "awb": "cv001000/cv001000.awb",
+      "acbBytes": 18272,
+      "awbBytes": 9281538
+    },
+    {
+      "id": "cv005000/cv005000",
+      "acb": "cv005000/cv005000.acb",
+      "awb": "cv005000/cv005000.awb",
+      "acbBytes": 32256,
+      "awbBytes": 17623368
+    },
+    {
+      "id": "en/cv000000/cv000000",
+      "acb": "en/cv000000/cv000000.acb",
+      "awb": "en/cv000000/cv000000.awb",
+      "acbBytes": 113344,
+      "awbBytes": 77991946
+    },
+    {
+      "id": "en/cv000002/cv000002",
+      "acb": "en/cv000002/cv000002.acb",
+      "awb": "en/cv000002/cv000002.awb",
+      "acbBytes": 10208,
+      "awbBytes": 725118
+    },
+    {
+      "id": "en/cv001000/cv001000",
+      "acb": "en/cv001000/cv001000.acb",
+      "awb": "en/cv001000/cv001000.awb",
+      "acbBytes": 18336,
+      "awbBytes": 9071458
+    },
+    {
+      "id": "en/cv005000/cv005000",
+      "acb": "en/cv005000/cv005000.acb",
+      "awb": "en/cv005000/cv005000.awb",
+      "acbBytes": 29344,
+      "awbBytes": 17128832
+    }
+  ]
+}
