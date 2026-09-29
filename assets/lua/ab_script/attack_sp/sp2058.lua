@@ -1,5 +1,6 @@
---1020530_魔人ブウ(ピッコロ吸収)_UR
+--1020530:UR_魔人ブウ(ピッコロ吸収)_必殺技：激烈光弾
 --sp_effect_a2_00139
+--sp2058
 
 fcolor_r = 245;
 fcolor_g = 245;
@@ -89,7 +90,26 @@ setRotateKey( 5,   1,  0 );
 setRotateKey( 6,   1,  0 );
 
 kame_flag = 0x00;
+
 if (_IS_PLAYER_SIDE_ == 1) then
+
+    if (_IS_SKIP_ == 1 and _IS_DODGE_ == 0) then
+
+        spep_0 = 0;
+        spep_1 = spep_0 + 96;
+        spep_2 = spep_1 + 166;
+        spep_3 = spep_2 + 96;
+        spep_4 = spep_3 + 94;
+        spep_5 = spep_4 + 86;
+        spep_6 = spep_5 + 76;
+        spep_7 = spep_6 + 56;
+
+        timing_skip = spep_6 + 0;
+
+        skipFrame(0, timing_skip );  -- スキップ先フレーム指定
+
+        -- ** 音 ** --
+    end
 
 ------------------------------------------------------
 -- 味方側
@@ -722,32 +742,7 @@ spep_3 = spep_2 + 96;
 --カードカットイン(94F)
 --------------------------------------
 -- ** カードカットイン ** --
-speff2 = entryEffect( spep_3 + 0, 1507, 0x100, -1, 0, 0, 0 );   -- カード
-setEffReplaceTexture( speff2, 1, 1 );
-setEffReplaceTexture( speff2, 2, 0 );-- カード差し替え
-setEffReplaceTexture( speff2, 5, 4 );-- 技名テクスチャ差し替え
--- ** 集中線 ** --
-shuchusen = entryEffectLife( spep_3 + 0, 906, 90, 0x100, -1, 0, 0, 0 );  --集中線
-setEffShake( spep_3 + 0, shuchusen, 90, 20 );
-setEffMoveKey( spep_3 + 0, shuchusen, 0, 0 , 0 );
-setEffMoveKey( spep_3 + 90, shuchusen, 0, 0 , 0 );
-setEffScaleKey( spep_3 + 0, shuchusen, 1.6, 1.6 );
-setEffScaleKey( spep_3 + 90, shuchusen, 1.6, 1.6 );
-setEffRotateKey( spep_3 + 0, shuchusen, 0 );
-setEffRotateKey( spep_3 + 90, shuchusen, 0 );
-setEffAlphaKey( spep_3 + 0, shuchusen, 255 );
-setEffAlphaKey( spep_3 + 90, shuchusen, 255 );
--- ** 音 ** --
-playSe( spep_3 + 0, SE_05 );
--- ** 白背景 ** --
-entryFadeBg( spep_3 + 0, 0, 96, 0, fcolor_r, fcolor_g, fcolor_b, 255 );  --白　背景
--- ** 白フェード ** --
-entryFade( spep_3 + 0, 0, 2, 4, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
-entryFade( spep_3 + 80, 6, 8, 0, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
-
--- ** 次の準備 ** --
-spep_4 = spep_3 + 94;
-
+spep_4 = showCardCutin(spep_3, 0);
 
 --------------------------------------
 --気弾発射(86F)

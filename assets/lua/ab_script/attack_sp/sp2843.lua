@@ -1,4 +1,4 @@
---9030500:LR_超ゴジータ_アクティブ必殺技_エネミー側：
+--9130500:LR_超ゴジータ_アクティブ必殺技_エネミー側：
 --sp_effect_b4_00369
 --sp2843
 
@@ -87,6 +87,8 @@ else
 
 spep_0 = 0;
 
+setupMovie(0, SP_01r, 0, 1);
+
 ------------------------------------------------------
 -- スタート〜フィニッシュ
 ------------------------------------------------------
@@ -107,16 +109,6 @@ setEffRotateKey( spep_0 + MAX_FRAME_0, base_0f, 0);
 setEffAlphaKey( spep_0 + 0, base_0f, 255);
 setEffAlphaKey( spep_0 + MAX_FRAME_0, base_0f, 255);
 
-base_0b = entryEffect( spep_0 + 0, SP_01b, 0x80, -1, 0, 0, 0); -- スタート〜フィニッシュ(ef_001b)
-setEffMoveKey( spep_0 + 0, base_0b, 0, 0 , 0);
-setEffMoveKey( spep_0 + MAX_FRAME_0, base_0b, 0, 0 , 0);
-setEffScaleKey( spep_0 + 0, base_0b, -1.0, 1.0);
-setEffScaleKey( spep_0 + MAX_FRAME_0, base_0b, -1.0, 1.0);
-setEffRotateKey( spep_0 + 0, base_0b, 0);
-setEffRotateKey( spep_0 + MAX_FRAME_0, base_0b, 0);
-setEffAlphaKey( spep_0 + 0, base_0b, 255);
-setEffAlphaKey( spep_0 + MAX_FRAME_0, base_0b, 255);
-
 KO = entryEffectLife( spep_0 + 1768, SP_02, 26, 0x100, -1, 0, 0, 0); -- KOループ用(ef_002)
 setEffMoveKey( spep_0 + 1768, KO, 0, 0 , 0);
 setEffMoveKey( spep_0 + MAX_FRAME_0 + 26, KO, 0, 0 , 0);
@@ -133,9 +125,9 @@ entryFadeBg( spep_0 + 0, 0, MAX_FRAME_0 + 2, 0, 0, 0, 0, 255 );
 -- ** 敵キャラクター ** --
 --敵の動き1
 setDisp( spep_0 + 200 + OFFSET_X, 1, 1 );
-setDisp( spep_0 + 316 + OFFSET_X, 1, 0 );
+setDisp( spep_0 + 314 + OFFSET_X, 1, 0 );
 
-changeAnime( spep_0 + 200 + OFFSET_X, 1, 17 );
+changeAnime( spep_0 + 200 + OFFSET_X, 1,17 );
 
 setMoveKey( spep_0 + 200 + OFFSET_X, 1, -589.2, -373 , 0 );
 setMoveKey( spep_0 + 201 + OFFSET_X, 1, -589.2, -373 , 0 );
@@ -279,18 +271,18 @@ setScaleKey( spep_0 + 303 + OFFSET_X, 1, 1.4, 1.4 );
 setScaleKey( spep_0 + 304 + OFFSET_X, 1, 1.3, 1.3 );
 setScaleKey( spep_0 + 305 + OFFSET_X, 1, 1.3, 1.3 );
 setScaleKey( spep_0 + 306 + OFFSET_X, 1, 1.2, 1.2 );
-setScaleKey( spep_0 + 316 + OFFSET_X, 1, 1.2, 1.2 );
+setScaleKey( spep_0 + 314 + OFFSET_X, 1, 1.2, 1.2 );
 
 setRotateKey( spep_0 + 200 + OFFSET_X, 1, 0 );
-setRotateKey( spep_0 + 316 + OFFSET_X, 1, 0 );
+setRotateKey( spep_0 + 314 + OFFSET_X, 1, 0 );
 
 --敵の動き2
 setDisp( spep_0 + 358 + OFFSET_X, 1, 1 );
 setDisp( spep_0 + 470 + OFFSET_X, 1, 0 );
 
-changeAnime( spep_0 + 358 + OFFSET_X, 1, 4 );
-changeAnime( spep_0 + 360 + OFFSET_X, 1, 8 );
-changeAnime( spep_0 + 442 + OFFSET_X, 1, 5 );
+changeAnime( spep_0 + 358 + OFFSET_X, 1,4 );
+changeAnime( spep_0 + 360 + OFFSET_X, 1,8 );
+changeAnime( spep_0 + 442 + OFFSET_X, 1,5 );
 
 setMoveKey( spep_0 + 358 + OFFSET_X, 1, -24.5, -84.6 , 0 );
 setMoveKey( spep_0 + 359 + OFFSET_X, 1, -24.5, -84.6 , 0 );
@@ -419,7 +411,7 @@ setRotateKey( spep_0 + 470 + OFFSET_X, 1, 19.8 );
 
 --敵の動き3
 setDisp( spep_0 + 494 + OFFSET_X, 1, 1 );
-setDisp( spep_0 + 534 + OFFSET_X, 1, 0 );
+setDisp( spep_0 + 532 + OFFSET_X, 1, 0 );
 
 setMoveKey( spep_0 + 494 + OFFSET_X, 1, 16.1, -604.2 , 0 );
 setMoveKey( spep_0 + 495 + OFFSET_X, 1, 16.1, -604.2 , 0 );
@@ -447,21 +439,20 @@ setMoveKey( spep_0 + 516 + OFFSET_X, 1, 16.1, -404 , 0 );
 setMoveKey( spep_0 + 525 + OFFSET_X, 1, 16.1, -404 , 0 );
 setMoveKey( spep_0 + 526 + OFFSET_X, 1, 16.1, -408 , 0 );
 setMoveKey( spep_0 + 529 + OFFSET_X, 1, 16.1, -408 , 0 );
-setMoveKey( spep_0 + 534 + OFFSET_X, 1, 16.1, -404 , 0 );
+setMoveKey( spep_0 + 532 + OFFSET_X, 1, 16.1, -404 , 0 );
 
 setScaleKey( spep_0 + 494 + OFFSET_X, 1, 2.4, 2.4 );
-setScaleKey( spep_0 + 534 + OFFSET_X, 1, 2.4, 2.4 );
+setScaleKey( spep_0 + 532 + OFFSET_X, 1, 2.4, 2.4 );
 
 setRotateKey( spep_0 + 494 + OFFSET_X, 1, 19.8 );
-setRotateKey( spep_0 + 534 + OFFSET_X, 1, 19.8 );
+setRotateKey( spep_0 + 532 + OFFSET_X, 1, 19.8 );
 
 --敵の動き4
 setDisp( spep_0 + 578 + OFFSET_X, 1, 1 );
-setDisp( spep_0 + 870 + OFFSET_X, 1, 0 );
+setDisp( spep_0 + 640 + OFFSET_X, 1, 0 );
 
-changeAnime( spep_0 + 578 + OFFSET_X, 1, 7 );
-changeAnime( spep_0 + 600 + OFFSET_X, 1, 8 );
-changeAnime( spep_0 + 796 + OFFSET_X, 1, 8 );
+changeAnime( spep_0 + 578 + OFFSET_X, 1,7 );
+changeAnime( spep_0 + 600 + OFFSET_X, 1,8 );
 
 setMoveKey( spep_0 + 578 + OFFSET_X, 1, -186.8, -268.6 , 0 );
 setMoveKey( spep_0 + 579 + OFFSET_X, 1, -186.8, -268.6 , 0 );
@@ -514,7 +505,65 @@ setMoveKey( spep_0 + 635 + OFFSET_X, 1, -299.7, 376.8 , 0 );
 setMoveKey( spep_0 + 636 + OFFSET_X, 1, -350.3, 420.5 , 0 );
 setMoveKey( spep_0 + 637 + OFFSET_X, 1, -350.3, 420.5 , 0 );
 setMoveKey( spep_0 + 638 + OFFSET_X, 1, -396.1, 498.1 , 0 );
-setMoveKey( spep_0 + 795 + OFFSET_X, 1, -396.1, 498.1 , 0 );
+setMoveKey( spep_0 + 640 + OFFSET_X, 1, -396.1, 498.1 , 0 );
+
+setScaleKey( spep_0 + 578 + OFFSET_X, 1, 2.5, 2.5 );
+setScaleKey( spep_0 + 579 + OFFSET_X, 1, 2.5, 2.5 );
+setScaleKey( spep_0 + 580 + OFFSET_X, 1, 2.53, 2.53 );
+setScaleKey( spep_0 + 581 + OFFSET_X, 1, 2.53, 2.53 );
+setScaleKey( spep_0 + 582 + OFFSET_X, 1, 2.56, 2.56 );
+setScaleKey( spep_0 + 583 + OFFSET_X, 1, 2.56, 2.56 );
+setScaleKey( spep_0 + 584 + OFFSET_X, 1, 2.59, 2.59 );
+setScaleKey( spep_0 + 585 + OFFSET_X, 1, 2.59, 2.59 );
+setScaleKey( spep_0 + 586 + OFFSET_X, 1, 2.61, 2.61 );
+setScaleKey( spep_0 + 587 + OFFSET_X, 1, 2.61, 2.61 );
+setScaleKey( spep_0 + 588 + OFFSET_X, 1, 2.63, 2.63 );
+setScaleKey( spep_0 + 589 + OFFSET_X, 1, 2.63, 2.63 );
+setScaleKey( spep_0 + 590 + OFFSET_X, 1, 2.65, 2.65 );
+setScaleKey( spep_0 + 591 + OFFSET_X, 1, 2.65, 2.65 );
+setScaleKey( spep_0 + 592 + OFFSET_X, 1, 2.67, 2.67 );
+setScaleKey( spep_0 + 599 + OFFSET_X, 1, 2.67, 2.67 );
+setScaleKey( spep_0 + 600 + OFFSET_X, 1, 2.06, 2.06 );
+setScaleKey( spep_0 + 611 + OFFSET_X, 1, 2.06, 2.06 );
+setScaleKey( spep_0 + 612 + OFFSET_X, 1, 2.05, 2.05 );
+setScaleKey( spep_0 + 615 + OFFSET_X, 1, 2.05, 2.05 );
+setScaleKey( spep_0 + 616 + OFFSET_X, 1, 2.04, 2.04 );
+setScaleKey( spep_0 + 617 + OFFSET_X, 1, 2.04, 2.04 );
+setScaleKey( spep_0 + 618 + OFFSET_X, 1, 2.03, 2.03 );
+setScaleKey( spep_0 + 619 + OFFSET_X, 1, 2.03, 2.03 );
+setScaleKey( spep_0 + 620 + OFFSET_X, 1, 2.02, 2.02 );
+setScaleKey( spep_0 + 621 + OFFSET_X, 1, 2.02, 2.02 );
+setScaleKey( spep_0 + 622 + OFFSET_X, 1, 2, 2 );
+setScaleKey( spep_0 + 623 + OFFSET_X, 1, 2, 2 );
+setScaleKey( spep_0 + 624 + OFFSET_X, 1, 1.97, 1.97 );
+setScaleKey( spep_0 + 625 + OFFSET_X, 1, 1.97, 1.97 );
+setScaleKey( spep_0 + 626 + OFFSET_X, 1, 1.93, 1.93 );
+setScaleKey( spep_0 + 627 + OFFSET_X, 1, 1.93, 1.93 );
+setScaleKey( spep_0 + 628 + OFFSET_X, 1, 1.87, 1.87 );
+setScaleKey( spep_0 + 629 + OFFSET_X, 1, 1.87, 1.87 );
+setScaleKey( spep_0 + 630 + OFFSET_X, 1, 1.77, 1.77 );
+setScaleKey( spep_0 + 631 + OFFSET_X, 1, 1.77, 1.77 );
+setScaleKey( spep_0 + 632 + OFFSET_X, 1, 1.63, 1.63 );
+setScaleKey( spep_0 + 633 + OFFSET_X, 1, 1.63, 1.63 );
+setScaleKey( spep_0 + 634 + OFFSET_X, 1, 1.49, 1.49 );
+setScaleKey( spep_0 + 635 + OFFSET_X, 1, 1.49, 1.49 );
+setScaleKey( spep_0 + 636 + OFFSET_X, 1, 1.35, 1.35 );
+setScaleKey( spep_0 + 637 + OFFSET_X, 1, 1.35, 1.35 );
+setScaleKey( spep_0 + 638 + OFFSET_X, 1, 1.22, 1.22 );
+setScaleKey( spep_0 + 640 + OFFSET_X, 1, 1.22, 1.22 );
+
+setRotateKey( spep_0 + 578 + OFFSET_X, 1, 30 );
+setRotateKey( spep_0 + 599 + OFFSET_X, 1, 30 );
+setRotateKey( spep_0 + 600 + OFFSET_X, 1, 29.8 );
+setRotateKey( spep_0 + 640 + OFFSET_X, 1, 29.8 );
+
+--敵の動き5
+
+setDisp( spep_0 + 796 + OFFSET_X, 1, 1 );
+setDisp( spep_0 + 870 + OFFSET_X, 1, 0 );
+
+changeAnime( spep_0 + 796 + OFFSET_X, 1,8 );
+
 setMoveKey( spep_0 + 796 + OFFSET_X, 1, 59.6, -95.7 , 0 );
 setMoveKey( spep_0 + 797 + OFFSET_X, 1, 59.6, -95.7 , 0 );
 setMoveKey( spep_0 + 798 + OFFSET_X, 1, 2, 31.5 , 0 );
@@ -586,50 +635,6 @@ setMoveKey( spep_0 + 867 + OFFSET_X, 1, -214, 712.9 , 0 );
 setMoveKey( spep_0 + 868 + OFFSET_X, 1, -370, 1034.9 , 0 );
 setMoveKey( spep_0 + 870 + OFFSET_X, 1, -370, 1034.9 , 0 );
 
-setScaleKey( spep_0 + 578 + OFFSET_X, 1, 2.5, 2.5 );
-setScaleKey( spep_0 + 579 + OFFSET_X, 1, 2.5, 2.5 );
-setScaleKey( spep_0 + 580 + OFFSET_X, 1, 2.53, 2.53 );
-setScaleKey( spep_0 + 581 + OFFSET_X, 1, 2.53, 2.53 );
-setScaleKey( spep_0 + 582 + OFFSET_X, 1, 2.56, 2.56 );
-setScaleKey( spep_0 + 583 + OFFSET_X, 1, 2.56, 2.56 );
-setScaleKey( spep_0 + 584 + OFFSET_X, 1, 2.59, 2.59 );
-setScaleKey( spep_0 + 585 + OFFSET_X, 1, 2.59, 2.59 );
-setScaleKey( spep_0 + 586 + OFFSET_X, 1, 2.61, 2.61 );
-setScaleKey( spep_0 + 587 + OFFSET_X, 1, 2.61, 2.61 );
-setScaleKey( spep_0 + 588 + OFFSET_X, 1, 2.63, 2.63 );
-setScaleKey( spep_0 + 589 + OFFSET_X, 1, 2.63, 2.63 );
-setScaleKey( spep_0 + 590 + OFFSET_X, 1, 2.65, 2.65 );
-setScaleKey( spep_0 + 591 + OFFSET_X, 1, 2.65, 2.65 );
-setScaleKey( spep_0 + 592 + OFFSET_X, 1, 2.67, 2.67 );
-setScaleKey( spep_0 + 599 + OFFSET_X, 1, 2.67, 2.67 );
-setScaleKey( spep_0 + 600 + OFFSET_X, 1, 2.06, 2.06 );
-setScaleKey( spep_0 + 611 + OFFSET_X, 1, 2.06, 2.06 );
-setScaleKey( spep_0 + 612 + OFFSET_X, 1, 2.05, 2.05 );
-setScaleKey( spep_0 + 615 + OFFSET_X, 1, 2.05, 2.05 );
-setScaleKey( spep_0 + 616 + OFFSET_X, 1, 2.04, 2.04 );
-setScaleKey( spep_0 + 617 + OFFSET_X, 1, 2.04, 2.04 );
-setScaleKey( spep_0 + 618 + OFFSET_X, 1, 2.03, 2.03 );
-setScaleKey( spep_0 + 619 + OFFSET_X, 1, 2.03, 2.03 );
-setScaleKey( spep_0 + 620 + OFFSET_X, 1, 2.02, 2.02 );
-setScaleKey( spep_0 + 621 + OFFSET_X, 1, 2.02, 2.02 );
-setScaleKey( spep_0 + 622 + OFFSET_X, 1, 2, 2 );
-setScaleKey( spep_0 + 623 + OFFSET_X, 1, 2, 2 );
-setScaleKey( spep_0 + 624 + OFFSET_X, 1, 1.97, 1.97 );
-setScaleKey( spep_0 + 625 + OFFSET_X, 1, 1.97, 1.97 );
-setScaleKey( spep_0 + 626 + OFFSET_X, 1, 1.93, 1.93 );
-setScaleKey( spep_0 + 627 + OFFSET_X, 1, 1.93, 1.93 );
-setScaleKey( spep_0 + 628 + OFFSET_X, 1, 1.87, 1.87 );
-setScaleKey( spep_0 + 629 + OFFSET_X, 1, 1.87, 1.87 );
-setScaleKey( spep_0 + 630 + OFFSET_X, 1, 1.77, 1.77 );
-setScaleKey( spep_0 + 631 + OFFSET_X, 1, 1.77, 1.77 );
-setScaleKey( spep_0 + 632 + OFFSET_X, 1, 1.63, 1.63 );
-setScaleKey( spep_0 + 633 + OFFSET_X, 1, 1.63, 1.63 );
-setScaleKey( spep_0 + 634 + OFFSET_X, 1, 1.49, 1.49 );
-setScaleKey( spep_0 + 635 + OFFSET_X, 1, 1.49, 1.49 );
-setScaleKey( spep_0 + 636 + OFFSET_X, 1, 1.35, 1.35 );
-setScaleKey( spep_0 + 637 + OFFSET_X, 1, 1.35, 1.35 );
-setScaleKey( spep_0 + 638 + OFFSET_X, 1, 1.22, 1.22 );
-setScaleKey( spep_0 + 795 + OFFSET_X, 1, 1.22, 1.22 );
 setScaleKey( spep_0 + 796 + OFFSET_X, 1, 4.95, 4.95 );
 setScaleKey( spep_0 + 797 + OFFSET_X, 1, 4.95, 4.95 );
 setScaleKey( spep_0 + 798 + OFFSET_X, 1, 4.47, 4.47 );
@@ -691,19 +696,15 @@ setScaleKey( spep_0 + 867 + OFFSET_X, 1, 5, 5 );
 setScaleKey( spep_0 + 868 + OFFSET_X, 1, 7, 7 );
 setScaleKey( spep_0 + 870 + OFFSET_X, 1, 7, 7 );
 
-setRotateKey( spep_0 + 578 + OFFSET_X, 1, 30 );
-setRotateKey( spep_0 + 599 + OFFSET_X, 1, 30 );
-setRotateKey( spep_0 + 600 + OFFSET_X, 1, 29.8 );
-setRotateKey( spep_0 + 795 + OFFSET_X, 1, 29.8 );
 setRotateKey( spep_0 + 796 + OFFSET_X, 1, 45 );
 setRotateKey( spep_0 + 870 + OFFSET_X, 1, 45 );
 
---敵の動き5
+--敵の動き6
 setDisp( spep_0 + 1186 + OFFSET_X, 1, 1 );
 setDisp( spep_0 + 1300 + OFFSET_X, 1, 0 );
 
-changeAnime( spep_0 + 1186 + OFFSET_X, 1, 8 );
-changeAnime( spep_0 + 1240 + OFFSET_X, 1, 6 );
+changeAnime( spep_0 + 1186 + OFFSET_X, 1,8 );
+changeAnime( spep_0 + 1240 + OFFSET_X, 1,6 );
 
 setMoveKey( spep_0 + 1186 + OFFSET_X, 1, -214.1, 11.7 , 0 );
 setMoveKey( spep_0 + 1187 + OFFSET_X, 1, -214.1, 11.7 , 0 );
@@ -941,6 +942,9 @@ if(_IS_DODGE_ == 1) then
 
 SP_dodge = spep_0 + 348; --エンドフェイズのフレーム数を置き換える
 
+pauseMovie( SP_dodge + 0, 1 );   -- 一時停止
+pauseMovie( SP_dodge + 5, 0 );   -- 一時停止解除
+stopMovie( SP_dodge + 9 );   -- 停止
 playSe( SP_dodge - 12, 1042);
 stopSe( SP_dodge - 12, SE021, 0);
 stopSe( SP_dodge - 12, SE022, 0);

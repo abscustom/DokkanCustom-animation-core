@@ -1,5 +1,6 @@
 --1022420:超サイヤ人4孫悟空&超サイヤ人4ベジータ_アクティブ融合
 --sp_effect_b4_00212
+--tf0037
 
 fcolor_r = 245;
 fcolor_g = 245;
@@ -96,8 +97,11 @@ if (_IS_PLAYER_SIDE_ == 1) then
 ------------------------------------------------------
 --はじめの準備
 spep_0=0;
+
+setupMovie( 0, SP_01, 2, 1);
+
 -- ** エフェクト等 ** --
-eff = entryEffect( spep_0 + 0, SP_01, 0x80, -1, 0, 0, 0 ); 
+eff = entryEffect( spep_0 + 0, SP_01, 0x100, -1, 0, 0, 0 ); 
 setEffMoveKey( spep_0 + 0, eff, 0, 0, 0 );
 setEffMoveKey( spep_0 + 1474, eff, 0, 0, 0 );
 setEffScaleKey( spep_0 + 0, eff, 1.0, 1.0 );

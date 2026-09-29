@@ -1,5 +1,6 @@
---1020280:天津飯_気功砲
+--1020280:天津飯_必殺技：気功砲
 --sp_effect_a7_00036
+--sp2040
 
 fcolor_r = 245;
 fcolor_g = 245;
@@ -109,6 +110,22 @@ setRotateKey( 6,   1,  0 );
 
 kame_flag = 0x00;
 if (_IS_PLAYER_SIDE_ == 1) then
+
+    if (_IS_SKIP_ == 1 and _IS_DODGE_ == 0) then
+
+        spep_0 = 0;
+        spep_1 = spep_0 + 158;
+        spep_2 = spep_1 + 94;
+        spep_3 = spep_2 + 138;
+
+        timing_skip = 10;
+
+        skipFrame(0, spep_3 + timing_skip );  -- スキップ先フレーム指定
+
+        -- ** 音 ** --
+
+
+    end
 ------------------------------------------------------------------------------------------------------------
 -- 味方側
 ------------------------------------------------------------------------------------------------------------
@@ -176,33 +193,58 @@ spep_1=spep_0+158;
 --------------------------------------
 
 -- ** カードカットイン ** --
-speff2 = entryEffect( spep_1 + 0, 1507, 0x80, -1, 0, 0, 0 );   -- カード
-setEffReplaceTexture( speff2, 1, 1 );
-setEffReplaceTexture( speff2, 2, 0 );-- カード差し替え
-setEffReplaceTexture( speff2, 5, 4 );-- 技名テクスチャ差し替え
+-- speff2 = entryEffectLife( spep_1 + 0, 1507, 90, 0x100, -1, 0, 0, 0 );   -- カード
+-- setEffReplaceTexture( speff2, 1, 1 );
+-- setEffReplaceTexture( speff2, 2, 0 );-- カード差し替え
+-- setEffReplaceTexture( speff2, 5, 4 );-- 技名テクスチャ差し替え
+
+if (_SPECIAL_SKILL_LEVEL_ == 0) then
+    print ("_SPECIAL_SKILL_LEVEL_ == 0");
+    SE_CUTIN = playSe( spep_1, SE_05);
+    speff = entryEffect( spep_1, 1507, 0, -1, 0, 0, 0); -- カード
+    setEffReplaceTexture( speff, 1, 1);
+    setEffReplaceTexture( speff, 2, 0); -- カード差し替え
+    setEffReplaceTexture( speff, 5, 4); -- 技名テクスチャ差し替え
+
+elseif(_SPECIAL_SKILL_LEVEL_ == 1) then
+    print ("_SPECIAL_SKILL_LEVEL_ == 1");
+    SE_CUTIN = playSe( spep_1, SE_05);
+    speff = entryEffect( spep_1, 1120, 0, -1, 0, 0, 0); -- カード
+    setEffReplaceTexture( speff, 1, 1);
+    setEffReplaceTexture( speff, 2, 0); -- カード差し替え
+    setEffReplaceTexture( speff, 5, 4); -- 技名テクスチャ差し替え
+
+elseif(_SPECIAL_SKILL_LEVEL_ == 2) then
+    print ("_SPECIAL_SKILL_LEVEL_ == 2");
+    SE_CUTIN = playSe( spep_1, SE_05);
+    speff = entryEffect( spep_1, 1121, 0, -1, 0, 0, 0); -- カード
+    setEffReplaceTexture( speff, 1, 1);
+    setEffReplaceTexture( speff, 2, 0); -- カード差し替え
+    setEffReplaceTexture( speff, 5, 4); -- 技名テクスチャ差し替え
+end
 
 -- ** 集中線 ** --
 shuchusen = entryEffectLife( spep_1 + 0, 906, 90, 0x100, -1, 0, 0, 0 );  --集中線
 setEffShake( spep_1 + 0, shuchusen, 90, 20 );
-
 setEffMoveKey( spep_1 + 0, shuchusen, 0, 0 , 0 );
 setEffMoveKey( spep_1 + 90, shuchusen, 0, 0 , 0 );
-
 setEffScaleKey( spep_1 + 0, shuchusen, 1.6, 1.6 );
 setEffScaleKey( spep_1 + 90, shuchusen, 1.6, 1.6 );
-
 setEffRotateKey( spep_1 + 0, shuchusen, 0 );
 setEffRotateKey( spep_1 + 90, shuchusen, 0 );
-
 setEffAlphaKey( spep_1 + 0, shuchusen, 255 );
 setEffAlphaKey( spep_1 + 90, shuchusen, 255 );
 
 -- ** 音 ** --
-playSe( spep_1 + 0, SE_05 );
+-- playSe( spep_1 + 0, SE_05 );
 stopSe( spep_1 + 0, se_1229, 0 );
 
---白フェード
-entryFade( spep_1 + 76, 6, 14, 4, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
+-- ** 白背景 ** --
+entryFadeBg( spep_1 + 0, 0, 96, 0, fcolor_r, fcolor_g, fcolor_b, 255 );  --白　背景
+
+-- ** 白フェード ** --
+entryFade( spep_1 + 0, 0, 2, 4, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
+entryFade( spep_1 + 80, 6, 8, 0, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
 
 -- ** 次の準備 ** --
 spep_2 = spep_1 + 94;
@@ -339,6 +381,14 @@ if(_IS_DODGE_ == 1) then
     SP_dodge = spep_3 + 26; --エンドフェイズのフレーム数を置き換える
     
     playSe( SP_dodge - 12, 1042 );
+
+    stopSe( SP_dodge - 12, SE1, 0 );
+    stopSe( SP_dodge - 12, SE2, 0 );
+    stopSe( SP_dodge - 12, SE3, 0 );
+    stopSe( SP_dodge - 12, SE4, 0 );
+    stopSe( SP_dodge - 12, SE5, 0 );
+    stopSe( SP_dodge - 12, SE6, 0 );
+
     pauseAll( SP_dodge, 67 );
     
     -- ** カットイン部分 ** --
@@ -719,7 +769,7 @@ setEffScaleKey(  spep_0 +152,  ctgogo, -1.07, 1.07 );
 se_1229 = playSe( spep_0 + 0, 1229 );--入り
 setSeVolume( spep_0 + 0, 1229, 66 );
 playSe( spep_0 + 14, 8 );--入り
-playSe( spep_0 + 80, 1018 );--顔カットイン
+--playSe( spep_0 + 80, 1018 );--顔カットイン
 
 --白フェード
 entryFade( spep_0 , 0, 2, 4, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
@@ -743,16 +793,12 @@ setEffReplaceTexture( speff2, 5, 4 );-- 技名テクスチャ差し替え
 -- ** 集中線 ** --
 shuchusen = entryEffectLife( spep_1 + 0, 906, 90, 0x100, -1, 0, 0, 0 );  --集中線
 setEffShake( spep_1 + 0, shuchusen, 90, 20 );
-
 setEffMoveKey( spep_1 + 0, shuchusen, 0, 0 , 0 );
 setEffMoveKey( spep_1 + 90, shuchusen, 0, 0 , 0 );
-
 setEffScaleKey( spep_1 + 0, shuchusen, 1.6, 1.6 );
 setEffScaleKey( spep_1 + 90, shuchusen, 1.6, 1.6 );
-
 setEffRotateKey( spep_1 + 0, shuchusen, 0 );
 setEffRotateKey( spep_1 + 90, shuchusen, 0 );
-
 setEffAlphaKey( spep_1 + 0, shuchusen, 255 );
 setEffAlphaKey( spep_1 + 90, shuchusen, 255 );
 
@@ -760,8 +806,12 @@ setEffAlphaKey( spep_1 + 90, shuchusen, 255 );
 playSe( spep_1 + 0, SE_05 );
 stopSe( spep_1 + 0, se_1229, 0 );
 
---白フェード
-entryFade( spep_1 + 76, 6, 14, 4, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
+-- ** 白背景 ** --
+entryFadeBg( spep_1 + 0, 0, 96, 0, fcolor_r, fcolor_g, fcolor_b, 255 );  --白　背景
+
+-- ** 白フェード ** --
+entryFade( spep_1 + 0, 0, 2, 4, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
+entryFade( spep_1 + 80, 6, 8, 0, fcolor_r, fcolor_g, fcolor_b, 255 );  --white fade
 
 -- ** 次の準備 ** --
 spep_2 = spep_1 + 94;
@@ -898,6 +948,14 @@ if(_IS_DODGE_ == 1) then
     SP_dodge = spep_3 + 26; --エンドフェイズのフレーム数を置き換える
     
     playSe( SP_dodge - 12, 1042 );
+
+    stopSe( SP_dodge - 12, SE1, 0 );
+    stopSe( SP_dodge - 12, SE2, 0 );
+    stopSe( SP_dodge - 12, SE3, 0 );
+    stopSe( SP_dodge - 12, SE4, 0 );
+    stopSe( SP_dodge - 12, SE5, 0 );
+    stopSe( SP_dodge - 12, SE6, 0 );
+
     pauseAll( SP_dodge, 67 );
     
     -- ** カットイン部分 ** --

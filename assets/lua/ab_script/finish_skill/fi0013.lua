@@ -1,4 +1,4 @@
---1029090:LR_ジレン_フィニッシュ(成功)：呼び覚まされるフルパワー
+--4029101:LR_ジレン_フィニッシュ(成功)：呼び覚まされるフルパワー
 --sp_effect_a9_00132
 --fi0013
 
@@ -75,15 +75,20 @@ if (_IS_PLAYER_SIDE_ == 1) then
  
        if(_IS_DODGE_ == 1) then
             skipFrame(0, spep_0 + 400 -13 );        -- スキップかつ回避された時のスキップ先フレーム指定
+            setupMovie(spep_0 + 400 -13, SP_01, spep_0 + 400 -13-2, 1);
        else
-            skipFrame(0, spep_0 + 910 -1 );      -- スキップ先フレーム指定
+            skipFrame(0, spep_0 + 910 );      -- スキップ先フレーム指定
+            setupMovie(spep_0 + 910, SP_01,spep_0 + 910-2, 1);
+
             --オーラ
-            SE021 = playSeVer2( spep_0 + 910, 1176, "", 0, 0, 0, -1);
-            setSeVolumeByWorkId( spep_0 + 910, SE021, 68 );
+            SE021 = playSeVer2( spep_0 + 910+1, 1176, "", 0, 0, 0, -1);
+            setSeVolumeByWorkId( spep_0 + 910+1, SE021, 68 );
             --画面遷移
-            SE024 = playSeVer2( spep_0 + 910, 1232, "", 0, 0, 0, -1);
+            SE024 = playSeVer2( spep_0 + 910+1, 1232, "", 0, 0, 0, -1);
        end
-    else end
+    else
+        setupMovie(0, SP_01, 0, 0);
+    end
 ------------------------------------------------------------------------------------------------------------
 -- 味方側
 ------------------------------------------------------------------------------------------------------------
@@ -98,7 +103,7 @@ spep_0 = 0;
 MAX_FRAME_0 = 1130;
 
 -- ** エフェクト等 ** --
-base_0 = entryEffect( spep_0 + 0, SP_01, 0x80, -1, 0, 0, 0 ); --敵よりも前面 (ef_001)
+base_0 = entryEffect( spep_0 + 0, SP_01, 0x100, -1, 0, 0, 0 ); --敵よりも前面 (ef_001)
 setEffMoveKey( spep_0 + 0, base_0, 0, 0 , 0 );
 setEffMoveKey( spep_0 + MAX_FRAME_0, base_0, 0, 0 , 0 );
 setEffScaleKey( spep_0 + 0, base_0, 1.0, 1.0 );
@@ -156,6 +161,10 @@ if(_IS_DODGE_ == 1) then
 
     SP_dodge = spep_0 + 400 ; --エンドフェイズのフレーム数を置き換える
     
+    pauseMovie( SP_dodge + 0, 1 );   -- 一時停止
+    pauseMovie( SP_dodge + 5, 0 );   -- 一時停止解除
+    stopMovie( SP_dodge + 9 );   -- 停止
+
     playSe( SP_dodge - 12, 1042);
     stopSe( SP_dodge - 12, SE001, 0);
     stopSe( SP_dodge - 12, SE005, 0);
